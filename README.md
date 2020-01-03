@@ -10,8 +10,9 @@ start the interop test server
 ```bash
 ./interop-server.sh up
 ```
-run px4 with gazebo using the default vtol model
+navigate to the PX4 Firmware directory and run PX4 with gazebo using the default vtol model
 ```bash
+cd /Documents/Firmware
 sudo make px4_sitl gazebo_standard_vtol
 ```
 Use mavproxy to split the mavlink signal coming from the simulated drone intro two streams on ports 14550 and 14551.
