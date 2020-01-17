@@ -14,6 +14,6 @@ pip install jsonify
 run ground control django web app
 ```
 cd Clark-Aerospace-Interop/AUVSI_SYSTEM
-python manage.py runserver localhost:8001
+./my_client.sh run
 ```
 
