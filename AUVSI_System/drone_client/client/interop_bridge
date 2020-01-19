@@ -1,0 +1,4 @@
+"""Bridge for the AUVSI interop client
+
+This module provides a Python interface to the inerop client.
+"""
