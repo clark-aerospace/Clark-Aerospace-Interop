@@ -1,7 +1,10 @@
 # AUVSI_System
 This system is a ground control application. It can comunicates with a mavlink enabled drone and the AUVSI interop server. 
 
-## getting started
+# Getting Started
+
+## **Install The Following Software**
+#### this list is incomlete for now
 
 install django
 ```
@@ -11,22 +14,55 @@ install jsonify
 ```
 pip install jsonify
 ```
+
+## **First Time Setup**
+
+Begin by setting up the interop client for testing.<br>
+run setup.py script. This will configure the AUVSI server API.
+```bash
+cd AUVSI_System/client
+python setup.py
+```
+create the python2 virtual environment.
+This is for executing the interop client.
+```bash
+virtualenv --system-site-packages -p /usr/bin/python2 venv2 && \
+source venv2/bin/activate && \
+pip install -r requirements.txt && \
+deactivate" && \
+```
+copy the proto directory to ../proto if not allready there.
+```bash
+mv proto ../proto
+```
+run setup.py in virtual environment venv2
+```bash
+cd /interop/client && \
+source venv2/bin/activate && \
+python setup.py install && \
+deactivate"
+```
+navigate to the interop server directory <br>
+build the docker image, the database, and <br>
+load test data. 
+```bash
+cd interop/server
+sudo ./interop-server.sh create_db
+sudo ./interop-server.sh load_test_data
+```
+
+## **Running The Interop Client And Test Environment Software**
+### These instructions assume that you have succesfully installed all dependencies. If it is requested I can add more instruction.
+
 run ground control django web app
 ```
 cd Clark-Aerospace-Interop/AUVSI_SYSTEM
 ./my_client.sh run
 ```
-
-## Instructions on how to establish connections between mavproxy, QGround control, Gazebo, PX4, the AUVSI interop server, and this Django interop client for testing
-
-### These isntructions assume that you have succesfully installed all dependencies. If it is requested I can add more instruction.
-
-navigate to the AUVSI interop server directory
-```bash
-cd interop/server
-```
+navigate to the AUVSI interop server directory and <br>
 start the interop test server
 ```bash
+cd interop/server
 ./interop-server.sh up
 ```
 set home coordinates to event location<br>
@@ -45,8 +81,5 @@ run QGround control
 ```bash
 ./Downloads/QGroundControl.AppImage
 ```
-navigate to the Clark-Aerospace-Interop directory and build and run our custom interop client.
-```bash
-cd Document/Clark-Aeropspace-Interop/AUVSI_System 
-./my_client.sh run
-```
+Everything should be set up let me know on discord if this helps or not. <br>
+my discord -> Trever Hibbs #1463
