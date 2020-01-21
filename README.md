@@ -83,3 +83,20 @@ run QGround control
 ```
 Everything should be set up let me know on discord if this helps or not. <br>
 my discord -> Trever Hibbs #1463
+
+## **Testing Guide**
+
+I am using unittest to test functions and classes. <br>
+The syntax for running a single test method is...
+```bash
+python -m unittest path.to.test_method.method 
+```
+view the test files to see what tests are available.
+
+## **Current Task**
+
+Create test for cli bridge class
+
+### Old Tasks
+
+~~Update read me with get started instruction~~
