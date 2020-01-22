@@ -3,7 +3,7 @@
 This class will alow the usage of the interop client class in a python3 script.
 """
 
-import os
+import subprocess
 
 class InteropCliBridge():
     """Client which provides a python3 interface to interop_cli.py
@@ -30,6 +30,18 @@ class InteropCliBridge():
         self.password = password
 
     def get_mission(self, mission_id):
-        cmd = "ls"
-        os.system(cmd)
+        command = "python2 interop_cli.py --url "
+        command += self.url + " "
+        command += "--username "
+        command += self.username + " "
+        command += "--password "
+        command += self.password + " "
+        command += "mission --mission_id "
+        command += str(mission_id)
+
+        process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
+        output = process.communicate()
         
+        command = "echo " + str(output) + " > json.txt"
+        process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
+        output = process.communicate()

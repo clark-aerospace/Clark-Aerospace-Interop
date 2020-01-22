@@ -12,6 +12,7 @@ class InteropCliBridgeTest(unittest.TestCase):
     """test class base"""
 
     def test_get_mission(self):
+        """If no exception is thrown then it worked."""
         interop_cli_bridge = InteropCliBridge(server, username, password)
         interop_cli_bridge.get_mission(1)
 
