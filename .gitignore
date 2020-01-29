@@ -1,6 +1,7 @@
 __pycache__
 *.pyc
 .venv
+set_up_script.sh
 
 #ignored directory
 auvsi_suas.egg-info/

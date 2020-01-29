@@ -95,8 +95,9 @@ view the test files to see what tests are available.
 
 ## **Current Task**
 
-Create test for cli bridge class
+Create method for droneClient class that sends a mission item to the device.
 
 ### Old Tasks
 
+~~Create test class for cli bridge class~~
 ~~Update read me with get started instruction~~

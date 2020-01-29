@@ -39,7 +39,8 @@ class InteropCliBridge():
         command += "mission --mission_id "
         command += str(mission_id)
 
-        process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
+        process = subprocess.Popen(command.split(), stdout=subprocess.PIPE, text=True)
         output, error = process.communicate() 
-        
+        print(output);
+
         return(output)     
