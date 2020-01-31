@@ -73,6 +73,10 @@ export PX4_HOME_LON=-76.4279944444445
 export PX4_HOME_ALT=28.0
 make px4_sitl gazebo_standard_vtol
 ```
+If you want to have a faster simulation set the following variable to 20.
+```bash
+export PX4_HOME_LAT=38.1446
+```
 Use mavproxy to split the mavlink signal into two streams on ports 14550 and 14551.
 ```bash
 mavproxy.py --master=udp:127.0.0.1:14550 --out=udp:127.0.0.1:14550 --out=udp:127.0.0.1:14551 
@@ -91,13 +95,14 @@ The syntax for running a single test method is...
 ```bash
 python -m unittest path.to.test_method.method 
 ```
-view the test files to see what tests are available.
+view the test files to see what tests are available.<br>
 
 ## **Current Task**
 
-Create method for droneClient class that sends a mission item to the device.
+Integrate drone_client class with django UI.
 
 ### Old Tasks
 
+~~Create method for droneClient class that sends a mission item to the device.~~
 ~~Create test class for cli bridge class~~ <br>
 ~~Update read me with get started instruction~~
