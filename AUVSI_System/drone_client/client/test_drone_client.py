@@ -2,8 +2,8 @@ import os
 import unittest
 import asyncio
 
-from drone_client.drone_client import DroneClient
-from auvsi_suas.client.client import AsyncClient
+from drone_client import DroneClient
+from interop_cli_bridge import InteropCliBridge
 
 # These tests run a SITL drone simulation using gazebo and default settings
 
@@ -27,7 +27,12 @@ class TestClientMission(unittest.TestCase):
         """send good mission using load_mission"""
         #if no exeption is raised it works
         client = DroneClient(device)
-        interop_client = interop_client = AsyncClient(interop_server,
+        interop_client_bridge = InteropCliBridge(interop_server,
                          interop_username,
                          interop_password)
-        asyncio.run(client.load_mission(1, interop_client, ))
+        asyncio.run(client.load_mission(1, interop_client_bridge))
+
+    def test_start_mission(self):
+        """start mission after mission has been loaded."""
+        client = DroneClient(device)
+        asyncio.run(client.start_mission())

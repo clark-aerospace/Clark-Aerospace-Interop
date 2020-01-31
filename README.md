@@ -99,5 +99,5 @@ Create method for droneClient class that sends a mission item to the device.
 
 ### Old Tasks
 
-~~Create test class for cli bridge class~~
+~~Create test class for cli bridge class~~ <br>
 ~~Update read me with get started instruction~~

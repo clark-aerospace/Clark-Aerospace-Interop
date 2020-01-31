@@ -2,6 +2,9 @@ __pycache__
 *.pyc
 .venv
 set_up_script.sh
+*.raw
+*.tlog
+*.parm
 
 #ignored directory
 auvsi_suas.egg-info/

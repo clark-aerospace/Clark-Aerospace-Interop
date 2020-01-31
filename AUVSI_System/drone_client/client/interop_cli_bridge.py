@@ -41,6 +41,5 @@ class InteropCliBridge():
 
         process = subprocess.Popen(command.split(), stdout=subprocess.PIPE, text=True)
         output, error = process.communicate() 
-        print(output);
 
         return(output)     

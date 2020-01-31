@@ -8,7 +8,6 @@ import json
 from auvsi_suas.client.exceptions import InteropError
 from auvsi_suas.proto import interop_api_pb2
 from concurrent.futures import ThreadPoolExecutor
-from google.protobuf import json_format
 from auvsi_suas.client.client import AsyncClient
 from mavsdk import System
 from mavsdk import (MissionItem)
@@ -27,17 +26,27 @@ class DroneClient():
                 print(f"Drone discovered with UUID: {state.uuid}")
                 break    
 
-    async def load_mission(self, mission_id, interop_client):
+    async def load_mission(self, mission_id, interop_client_bridge):
+        """get mission from the interop server and send it to drone."""
         await self.connect()
 
-        mission = interop_client.get_mission(mission_id).result()
-        mission_json = json_format.MessageToJson(mission)
-        mission_dictionary = json.loads(mission_json)
+        mission = interop_client_bridge.get_mission(mission_id)
+        mission_dictionary = json.loads(mission)
 
         mission_items = []
+        mission_items.append(MissionItem(38.1446916666667,
+                                        -76.4279944444445,
+                                        25,
+                                        10,
+                                        True,
+                                        float('nan'),
+                                        float('nan'),
+                                        MissionItem.CameraAction.NONE,
+                                        float('nan'),
+                                        float('nan')))
         for waypoint in mission_dictionary['waypoints']:
-            mission_items.append(MissionItem(waypoint['longitude'],
-                                             waypoint['latitude'],
+            mission_items.append(MissionItem(waypoint['latitude'],
+                                             waypoint['longitude'],
                                              waypoint['altitude'],
                                              10,
                                              True,
@@ -46,13 +55,28 @@ class DroneClient():
                                              MissionItem.CameraAction.NONE,
                                              float('nan'),
                                              float('nan')))
-        
+    
         await self.drone.mission.set_return_to_launch_after_mission(True)
 
         print("-- Uploading mission")
         await self.drone.mission.upload_mission(mission_items)
 
+    async def start_mission(self):
+        """run a mission that was sent by load_mission."""
+        termination_task = asyncio.ensure_future(self.observe_is_in_air())
+
+        await self.connect()
+
+        print("-- Arming")
+        await self.drone.action.arm()
+
+        print("-- Starting mission")
+        await self.drone.mission.start_mission()
+
+        await termination_task
+
     async def mission(self):
+        """test to see if drone mission works"""
         await self.connect()
 
         asyncio.ensure_future(self.print_mission_progress())
@@ -69,26 +93,6 @@ class DroneClient():
                                         MissionItem.CameraAction.NONE,
                                         float('nan'),
                                         float('nan')))
-        # mission_items.append(MissionItem(47.398036222362471,
-        #                                 8.5450146439425509,
-        #                                 25,
-        #                                 10,
-        #                                 True,
-        #                                 float('nan'),
-        #                                 float('nan'),
-        #                                 MissionItem.CameraAction.NONE,
-        #                                 float('nan'),
-        #                                 float('nan')))
-        # mission_items.append(MissionItem(47.397825620791885,
-        #                                 8.5450092830163271,
-        #                                 25,
-        #                                 10,
-        #                                 True,
-        #                                 float('nan'),
-        #                                 float('nan'),
-        #                                 MissionItem.CameraAction.NONE,
-        #                                 float('nan'),
-        #                                 float('nan')))
 
         await self.drone.mission.set_return_to_launch_after_mission(True)
 
