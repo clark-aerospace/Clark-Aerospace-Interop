@@ -75,7 +75,7 @@ make px4_sitl gazebo_standard_vtol
 ```
 If you want to have a faster simulation set the following variable to 20.
 ```bash
-export PX4_HOME_LAT=38.1446
+export PX_SIM_SPEED_FACTOR=20
 ```
 Use mavproxy to split the mavlink signal into two streams on ports 14550 and 14551.
 ```bash
@@ -103,6 +103,6 @@ Integrate drone_client class with django UI.
 
 ### Old Tasks
 
-~~Create method for droneClient class that sends a mission item to the device.~~
+~~Create method for droneClient class that sends a mission item to the device.~~<br>
 ~~Create test class for cli bridge class~~ <br>
 ~~Update read me with get started instruction~~
