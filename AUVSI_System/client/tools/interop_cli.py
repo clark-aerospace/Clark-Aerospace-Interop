@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
 # CLI for interacting with interop server.
 
 from __future__ import print_function
@@ -64,14 +64,6 @@ def probe(args, client):
 def mavlink(args, client):
     proxy = MavlinkProxy(args.device, client)
     proxy.proxy()
-
-def jsonTest(args, client):
-    mission = client.get_mission(args.mission_id).result()
-    mission_json = json_format.MessageToJson(mission)
-    mission_dictionary = json.loads(mission_json)
-
-
-    #print(mission_dictionary["waypoints"][0][latitude])
 
 def main():
     # Setup logging
