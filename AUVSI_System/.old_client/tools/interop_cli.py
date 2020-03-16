@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 # CLI for interacting with interop server.
 
 from __future__ import print_function
@@ -64,7 +64,6 @@ def probe(args, client):
 def mavlink(args, client):
     proxy = MavlinkProxy(args.device, client)
     proxy.proxy()
-
 
 def main():
     # Setup logging

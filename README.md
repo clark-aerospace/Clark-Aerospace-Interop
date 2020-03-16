@@ -6,7 +6,7 @@ This system is a ground control application. It can comunicates with a mavlink e
 ## **Install The Following Software**
 #### this list is incomlete for now
 
-install django
+install django with python3
 ```
 python -m pip install Django
 ```
