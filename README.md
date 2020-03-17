@@ -14,6 +14,9 @@ install jsonify
 ```
 pip install jsonify
 ```
+install PX4 SITL
+https://dev.px4.io/v1.9.0/en/setup/dev_env_linux_ubuntu.html#convenience-bash-scripts
+
 
 ## **First Time Setup**
 
