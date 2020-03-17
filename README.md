@@ -4,8 +4,13 @@ This system is a ground control application. It can comunicates with a mavlink e
 # Getting Started
 
 ## **Install The Following Software**
-#### this list is incomlete for now
-
+#### this list is incomplete for now
+install python3 (anaconda recomended)<br>
+link to anaconda install instructions: https://docs.anaconda.com/anaconda/install/linux/ <br>
+Create python3 anaconda environment.
+```
+conda create --name interop python=3 
+```
 install django
 ```
 python -m pip install Django
