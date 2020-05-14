@@ -17,23 +17,13 @@ pip install jsonify
 
 ## **First Time Setup**
 
-Begin by setting up the interop client for testing.<br>
-run setup.py script. This will configure the AUVSI server API.
-```bash
-cd AUVSI_System/client
-python setup.py install
-```
-create the python2 virtual environment.
+### set up python2 virual environments.
 This is for executing the interop client.
 ```bash
 virtualenv --system-site-packages -p /usr/bin/python2 venv2 && \
 source venv2/bin/activate && \
 pip install -r requirements.txt && \
 deactivate
-```
-copy the proto directory to AUVSI_Systems from AUVSI_System/client if not allready there.
-```bash
-mv proto ../proto
 ```
 run setup.py in virtual environment venv2
 ```bash
@@ -42,6 +32,16 @@ source venv2/bin/activate && \
 python setup.py install && \
 deactivate
 ```
+
+### Install auvsi_suas client library
+The competition provides a client library to make integration easier. To run the drone_client system locally you must install this libary. You can install the client library by executing setup commands listed [here](https://github.com/auvsi-suas/interop/blob/master/client/Dockerfile).
+
+You will also need to add the auvsi_suas python module to the python path variable. Add the following line to your `~/.bashrc` file.
+```
+export PYTHONPATH="${PYTHONPATH}:/home/treverhibbs/Documents/projects/Clark-Aerospace-Interop/AUVSI_System/client"
+```
+
+### setup the interop server
 navigate to the interop server directory <br>
 build the docker image, the database, and <br>
 load test data. 
