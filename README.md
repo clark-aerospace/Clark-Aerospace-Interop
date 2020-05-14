@@ -21,7 +21,7 @@ Begin by setting up the interop client for testing.<br>
 run setup.py script. This will configure the AUVSI server API.
 ```bash
 cd AUVSI_System/client
-python setup.py
+python setup.py install
 ```
 create the python2 virtual environment.
 This is for executing the interop client.
@@ -29,9 +29,9 @@ This is for executing the interop client.
 virtualenv --system-site-packages -p /usr/bin/python2 venv2 && \
 source venv2/bin/activate && \
 pip install -r requirements.txt && \
-deactivate" && \
+deactivate
 ```
-copy the proto directory to ../proto if not allready there.
+copy the proto directory to AUVSI_Systems from AUVSI_System/client if not allready there.
 ```bash
 mv proto ../proto
 ```
@@ -40,7 +40,7 @@ run setup.py in virtual environment venv2
 cd /interop/client && \
 source venv2/bin/activate && \
 python setup.py install && \
-deactivate"
+deactivate
 ```
 navigate to the interop server directory <br>
 build the docker image, the database, and <br>
@@ -66,8 +66,12 @@ cd interop/server
 ./interop-server.sh up
 ```
 set home coordinates to event location<br>
-and run px4 with gazebo using the default vtol model
+and run px4 with gazebo using the default vtol model<br>
+
+First navigate to the PX4 Firmware directory.<br>
+default Firmware directory path = /home/username/src
 ```bash
+cd /home/username/src
 export PX4_HOME_LAT=38.1446916666667
 export PX4_HOME_LON=-76.4279944444445
 export PX4_HOME_ALT=28.0
