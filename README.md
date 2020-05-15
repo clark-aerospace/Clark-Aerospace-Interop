@@ -41,6 +41,29 @@ You will also need to add the auvsi_suas python module to the python path variab
 export PYTHONPATH="${PYTHONPATH}:/home/treverhibbs/Documents/projects/Clark-Aerospace-Interop/AUVSI_System/client"
 ```
 
+### Install mavproxy
+*taken from https://ardupilot.github.io/MAVProxy/html/getting_started/download_and_installation.html*
+```
+pip install MAVProxy
+```
+Depending on user and system settings, there may be some extra configuration required.
+
+If not already set, MAVProxy needs to be on the system path:
+```
+echo "export PATH=$PATH:$HOME/.local/bin" >> ~/.bashrc
+```
+The user permissions may also need to be changed to allow access to serial devices:
+```
+sudo adduser <username> dialout
+```
+The system will need to be logged out and logged back in again to apply the above two changes.
+
+### Install requirements.txt with python2
+Navigate to AUVSI_System/client
+```
+python2 -m pip install -r requirements.txt
+```
+
 ### setup the interop server
 navigate to the interop server directory <br>
 build the docker image, the database, and <br>
@@ -100,6 +123,13 @@ The syntax for running a single test method is...
 python -m unittest path.to.test_method.method 
 ```
 view the test files to see what tests are available.<br>
+
+### Example test commands
+
+run `test_mission()`
+```
+python -m unittest test_drone_client.TestClientMission.test_mission
+```
 
 ## **Current Task**
 
