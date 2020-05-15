@@ -10,7 +10,7 @@ from auvsi_suas.proto import interop_api_pb2
 from concurrent.futures import ThreadPoolExecutor
 from auvsi_suas.client.client import AsyncClient
 from mavsdk import System
-from mavsdk import (MissionItem)
+from mavsdk import (MissionItem, MissionPlan)
 
 class DroneClient():
     def __init__(self, url):
@@ -58,8 +58,10 @@ class DroneClient():
     
         await self.drone.mission.set_return_to_launch_after_mission(True)
 
+        mission_plan = MissionPlan(mission_items)
+
         print("-- Uploading mission")
-        await self.drone.mission.upload_mission(mission_items)
+        await self.drone.mission.upload_mission(mission_plan)
 
     async def start_mission(self):
         """run a mission that was sent by load_mission."""

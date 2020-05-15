@@ -5,6 +5,7 @@ set_up_script.sh
 *.raw
 *.tlog
 *.parm
+token.txt
 
 #ignored directory
 auvsi_suas.egg-info/
