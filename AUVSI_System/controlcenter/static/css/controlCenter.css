@@ -14,7 +14,31 @@
     background: #ededf1;
     color:black;
 }
-a{
-    color:#fff;
-}
 /* end of card content */
+
+body {
+  background: #2e4053;
+  color: #dbdbdb;
+}
+
+/***************************************************
+ * HEADER
+ ***************************************************/
+
+.topnav {
+  padding: 1em 0em;
+  margin: 0 auto;
+  background: light-grey;
+}
+
+.topnav__left {
+  margin: 0 auto;
+}  
+
+.topnav__center {
+  margin: 0 auto;
+}
+
+.topnav__right {
+  margin: 0 auto;
+}

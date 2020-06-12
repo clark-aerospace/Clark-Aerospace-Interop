@@ -8,6 +8,12 @@ set_up_script.sh
 token.txt
 
 #ignored directory
-auvsi_suas.egg-info/
+uvsi_suas.egg-info/
 build/
 dist/
+
+#vim related
+.orig
+.swp
+
+tags/

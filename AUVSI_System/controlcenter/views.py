@@ -37,9 +37,11 @@ def getMission(request):
     #connect(server.url,server.username,server.password)
     mission_file = ParseJsonFile("C:\\Users\\santi\\Desktop\\AUVSI\\AUVSI_System\\AUVSI_System\\controlcenter\\text.json")
     return render(request,'controlcenter/get_mission.html',{'file':mission_file})
-#def uploadMission(request):
-#
-#    return render(request, 'controlcenter/controlCenter.html',{'file':file})
+
+def uploadMission(request):
+
+    return render(request, 'controlcenter/controlCenter.html',{'file':file})
+
 def boundaryGrid(request):
     mission_file = ParseJsonFile("C:\\Users\\santi\\Desktop\\AUVSI\\AUVSI_System\\AUVSI_System\\controlcenter\\text.json")
     #boundaryList = mission_file.boundaryPointsList
