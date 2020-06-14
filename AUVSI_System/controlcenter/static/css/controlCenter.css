@@ -7,19 +7,11 @@
 
 
 /* cards content */
-.bg-primary {
-    background-color: #2d373a !important;
-}
 .card-body {
     background: #ededf1;
     color:black;
 }
 /* end of card content */
-
-body {
-  background: #2e4053;
-  color: #dbdbdb;
-}
 
 /***************************************************
  * HEADER
@@ -28,7 +20,6 @@ body {
 .topnav {
   padding: 1em 0em;
   margin: 0 auto;
-  background: light-grey;
 }
 
 .topnav__left {

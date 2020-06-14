@@ -1,4 +1,3 @@
-{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,35 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+    {% load static %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <!-- Main Stylesheet File -->
     <link href="{% static 'css/controlCenter.css' %}" rel="stylesheet">
     <title>Control Center</title>
   </head>
-  <body>
-    <div class = "row secondary-color topnav">
-      <div class="row topnav__left">
-        <a class="btn btn--topnav__left c_item" href="/">Home</a>
-        <a class="btn btn--topnav__left c_item" href="/submissions">Submissions</a>
-        <a class="btn btn--topnav__left c_item" href="/news">News</a>
-        <a class="btn btn--topnav__left c_item" href="/login">Login</a>    </div>
-        <div class="topnav__center">
-        </div>
-        <div class="row topnav__right">
-          <form class="row form form--login" name="login" method="POST" action="/login">
-          <div class="row topnav__right form--login__input-field">
-            <label>User </label>
-              <input class="text-field text-field--topnav__right" type="text" name="username" required>
-          </div>
-          <div class="row topnav__right form--login__input-field">
-            <label>Pass </label>
-            <input class="text-field text-field--topnav__right" type="password" name="password" required>
-          </div>
-            <input class="topnav__right btn form--login__btn--login" type="submit" value="Login">
-          </form>
-        </div>
+
+
+  <body class = "col bg-dark text-white">
+    <div class = "row container-fluid topnav">
+      {% block topnav %}
+        <p>no topnav</p> 
+      {% endblock %}
     </div>
+
+    <div container> 
+      {% block contents %}
+        <p> no content</p>
+      {% endblock contents %}
+    </div>
+
+
+    {% load static %}
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
   </body> 
 </html>

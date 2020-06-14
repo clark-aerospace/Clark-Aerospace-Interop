@@ -1,0 +1,38 @@
+{% extends "controlcenter/controlCenter.html" %}
+
+{% block topnav %}
+<div class="row topnav__left">
+  <a class="text-light btn btn--topnav__left btn-outline-secondary c_item" href="/">Login</a>
+</div>
+<div class="topnav__center">
+</div>
+<div class="row topnav__right">
+</div>
+{% endblock %}
+
+
+{% block contents %}
+<div class="row">
+  <div class="col-sm bg-secondary border">
+    <form class="" action="/login.py" method="post">
+      <legend> Drone info </legend>   
+      <div class="form-group">
+        <label for="droneName">Drone Name</label>
+        <input type="text" class="form-control" id="droneName"></input>
+      </div>
+      <div class="form-group">
+        <label for="dronePass">Password</label>
+        <input type="text" class="form-control" id="dronePass"></input>
+      </div>
+      <button type="submit" class="btn btn-light">Submit</button>
+    </form>
+  </div>
+  <div class="col">
+  </div>
+  <div class="col">
+  </div>
+  <div class="col">
+  </div>
+</div>
+{% endblock contents %}
+

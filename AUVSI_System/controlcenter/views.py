@@ -29,7 +29,7 @@ def controlCenter(request):
             return redirect('controlCenter')
     else:
         form = MainPageForm()
-    return render(request,'controlcenter/controlCenter.html',{'form': form})
+    return render(request,'controlcenter/controlCenter_home.html',{'form': form})
 
 def getMission(request):
     #connect("http://localhost:8000","testuser","testpass")
