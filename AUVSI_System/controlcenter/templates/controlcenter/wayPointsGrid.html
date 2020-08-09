@@ -11,43 +11,44 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- CSS -->
     <link href="{% static  'css/style.css' %}" rel="stylesheet">
-    <title>boundaryGrid!</title>
+    <title>wayPointGrid!</title>
   </head>
   <body>
     <div id="title">
-      <p>Boundary Grid</p>
+      <p>wayPointGrid!</p>
+    </div>
+    <div id="floating-panel">
+      <button id="myBtn">delete</button>
     </div>
     <div id="map"></div>
 
-    <script type="text/javascript">
+    <!-- map Types drop down-->
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Map Types
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="{% url 'boundaryGrid' %}">
+          Boundary Grid
+        </a>
+        <a class="dropdown-item" href="{% url 'wayPointsGrid' %}">
+          Way Points Grid
+        </a>
+        <a class="dropdown-item" href="{% url 'completeMap' %}">
+          Complete Map
+        </a>
+        <a class="dropdown-item" href="{% url 'searchGrid' %}">
+          Search Grid
+        </a>
+      </div>
+    </div>
+    <!-- end map Types drop down-->
+
+    <!-- Using Google maps API to create map -->
+    <script type="module" >
+      import {createWayPointsGrid} from '../static/js/wayPointsGrid.js';
       var missionFile = {{ mission|jsonify }};
-      var wayPointList = missionFile['waypoints'];
-      boundaryCoordinates = [];
-      for ( dictionary of wayPointList) {
-        boundaryCoordinates.push({
-          lat: dictionary['latitude'],
-          lng: dictionary['longitude']
-        }
-        )
-      }
-      //console.log(boundaryCoordinates)
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
-          center: {lat: 38.1462694444444, lng: -76.4281638888889},
-          mapTypeId: 'terrain'
-        });
-
-        var flightPath = new google.maps.Polyline({
-          path: boundaryCoordinates,
-          geodesic: true,
-          strokeColor: '#FF0000',
-          strokeOpacity: 1.0,
-          strokeWeight: 2
-        });
-
-        flightPath.setMap(map);
-      }
+      createWayPointsGrid(missionFile);
     </script>
 
     <!-- Optional JavaScript -->
@@ -55,9 +56,5 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <!-- Google Maps scripts -->
-    <script async defer
-    
-    </script>
   </body>
 </html>

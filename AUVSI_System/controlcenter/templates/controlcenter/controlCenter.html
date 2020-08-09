@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Main Stylesheet File -->
     <link href="{% static  'css/controlCenter.css' %}" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> 
     <title>Control Center</title>
   </head>
   <body>
@@ -25,26 +27,35 @@
     <div class="row">
       <div class="col-sm">
         <!-- GET Mission -->
-        
         <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
           <a href="{% url 'mission' %}">
-          <div class="card-header">Get Mission</div>
+          <div class="card-header">Request Mission</div>
           </a>
           <div class="card-body">
-            <h5 class="card-title">Primary card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">Includes:</h5>
+            <ul>
+              <li>Max Altitude</li>
+              <li>Min Altitude</li>
+              <li>Way Points</li>
+              <li>Boundary Points</li>
+            </ul>
           </div>
         </div>
       </div>
       <div class="col-sm">
         <!-- Update Mission -->
         <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-          <a href="{% url 'upload_mission' %}">
-          <div class="card-header">Upload Mission</div>
+          <a href="#">
+          <div class="card-header">Upload Coordinates</div>
           </a>
           <div class="card-body">
-            <h5 class="card-title">Primary card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">Includes:</h5>
+            <ul>
+              <li>Succesful Uploads</li>
+              <li>Drone telemetry</li>
+              <li> --------------</li>
+              <li> --------------</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -52,13 +63,18 @@
         <!-- Plan Mission -->
         <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
           <a href="#">
-            <a href="{% url 'boundaryGrid' %}">
+            <a href="{% url 'completeMap' %}">
               <div class="card-header">Plan mission</div>
             </a>
           </a>
           <div class="card-body">
-            <h5 class="card-title">Primary card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">Includes:</h5>
+            <ul>
+              <li>Boundary Grid</li>
+              <li>Way Points Grid</li>
+              <li>Search Grid</li>
+              <li>Complete Grid</li>
+            </ul>
           </div>
         </div>
       </div>

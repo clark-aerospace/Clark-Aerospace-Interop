@@ -17,50 +17,83 @@
           <div class="row">
             <div class="col-sm">
                 <h2> Max Flying Altitude</h2>
-                {{ file.altitudeMax}}
+                <p>{{ max_altitude }}</p>
             </div>
             <div class="col-sm">
                 <h2> Minimum Flying Altitude</h2>
-                {{ file.altitudeMin}}
+                <p>{{ min_altitude }}</p>
             
             </div>
           </div>
         </div>
-        <div class="container">
-            <div class="row">
-              <div class="col-sm3">
-                  <h2>Way point locations</h2>
-                  {% for waypoint in file.wayPointsList %}
-                  <div class="list-group">
-                      <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">List group item heading {{ x }} </h5>
-                        </div>
-                        Latidude: {{ waypoint.latitude }}<br>
-                        Longitude: {{ waypoint.longitude}}<br>
-                        altitude: {{ waypoint.altitude }}<br>
-                      </a>
-                    </div>
-                    {% endfor %}
-              </div>
-              <div class="col-sm">
-                  <h2> Boundary points</h2>
-                  {% for boundarypoint in file.boundaryPointsList %}
-                  <div class="list-group">
-                      <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">List group item heading</h5>
-                        </div>
-                        Latidude: {{ boundarypoint.latitude }}<br>
-                        Longitude: {{ boundarypoint.longitude}}<br>
-                        altitude: {{ boundarypoint.altitude }}<br>
-                      </a>
-                    </div>
-                    {% endfor %}
-              
-              </div>
+
+          <!-- Dysplay way points-->
+          <div class="container">
+            <h2 class="shift-right">Way point locations</h2>
+          {% for key, value in way_points_dict.items %}
+          
+          <div class="row">
+            {% for item in value %}
+            <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                </div>
+                Latidude: {{ item.latitude }}<br>
+                Longitude: {{ item.longitude}}<br>
+                altitude: {{ item.altitude }}<br>
+              </a>
             </div>
+            {% endfor %}
           </div>
+          {% endfor %}
+          </div>
+
+          <!-- Dysplay boundary points-->
+          <div class="container">
+            <h2 class="shift-right">Boundary Coordinates</h2>
+          {% for key, value in boundary_dict.items %}
+          
+          <div class="row">
+            {% for item in value %}
+            <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                </div>
+                Latidude: {{ item.latitude }}<br>
+                Longitude: {{ item.longitude}}<br>
+                altitude: {{ item.altitude }}<br>
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+          {% endfor %}
+          </div>
+
+          <!-- Dysplay search points-->
+          <div class="container">
+            <h2 class="shift-right">Search Coordinates</h2>
+          {% for key, value in search_dict.items %}
+          
+          <div class="row">
+            {% for item in value %}
+            <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                </div>
+                Latidude: {{ item.latitude }}<br>
+                Longitude: {{ item.longitude}}<br>
+                altitude: {{ item.altitude }}<br>
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+          {% endfor %}
+          </div>
+
+
+
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

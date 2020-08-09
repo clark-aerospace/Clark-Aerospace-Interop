@@ -7,8 +7,13 @@
 
 
 /* cards content */
+.container{
+    margin-top: 8em;
+    font-family: 'Lato', sans-serif;
+}
+
 .bg-primary {
-    background-color: #2d373a !important;
+    background-color: #262c39 !important;;
 }
 .card-body {
     background: #ededf1;
@@ -16,5 +21,12 @@
 }
 a{
     color:#fff;
+    text-align: center;
+    font-size: 21px;
+}
+
+a:hover{
+    color: #ee8565;
+    text-decoration: none;
 }
 /* end of card content */

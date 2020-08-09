@@ -15,10 +15,9 @@
   </head>
   <body>
     <div id="title">
-      <p>Boundary Grid</p>
+      <p>Complete Map</p>
     </div>
     <div id="map"></div>
-
     <!-- map Types drop down-->
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -43,9 +42,9 @@
 
     <!-- Using Google maps API to create map -->
     <script type="module" >
-      import {createBoundary} from '../static/js/boundaryGrid.js';
+      import {createCompleteMap} from '../static/js/completeMap.js';
       var missionFile = {{ mission|jsonify }};
-      createBoundary(missionFile);
+      createCompleteMap(missionFile);
     </script>
 
     <!-- Optional JavaScript -->

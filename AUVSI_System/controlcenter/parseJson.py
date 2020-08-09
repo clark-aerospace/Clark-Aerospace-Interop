@@ -10,6 +10,7 @@ class ParseJsonFile:
         self.flyZoneDictionary = self.flyZonesList[0]
         self.wayPointsList = self.jsonFile['waypoints']
         self.boundaryPointsList = self.flyZoneDictionary['boundaryPoints']
+        self.searchPointList = self.jsonFile['searchGridPoints']
         self.altitudeMax = self.flyZoneDictionary['altitudeMax']
         self.altitudeMin = self.flyZoneDictionary['altitudeMin']
 
